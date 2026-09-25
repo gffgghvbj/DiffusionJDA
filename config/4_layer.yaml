@@ -1,0 +1,37 @@
+eps: 0.001
+eval_mode: False
+#eval_mode: True
+
+# optimizer
+lr: 0.0001
+# train
+datasets: mot17
+num_proposals: 256
+data_dir: '/media/cvlab1045/D1/sp/DiffMOT-main/mnt/MOT/trackers_gt/train'
+diffnet: HMINet
+interval: 5
+augment: True
+encoder_dim: 256
+tf_layer: 4
+epochs: 800
+batch_size: 512
+seed: 123
+eval_every: 40
+gpus: [0]
+
+# Testing
+eval_at: 800
+det_dir: "/mnt/8T/home/estar/data/MOT/test"
+info_dir: '/mnt/8T/home/estar/data/MOT/test'
+reid_dir: "/mnt"
+save_dir: "/media/cvlab1045/D1/sp/DiffMOT-main/mnt/8T/home/estar/data/MOT/trackers_gt/train"
+eval_expname: Agent_attention
+high_thres: 0.6
+low_thres: 0.1
+w_assoc_emb: 2.2
+aw_param: 1.7
+preprocess_workers: 16
+
+# Data Parameters:
+device: cuda
+eval_device: None

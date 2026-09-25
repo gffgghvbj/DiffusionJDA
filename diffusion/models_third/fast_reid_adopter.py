@@ -1,0 +1,46 @@
+import torch
+import cv2
+import sys
+
+sys.path.append('/media/cvlab1045/D1/sp/code/DiffusionTrack-main/diffusion/models/external')
+from fast_reid.fastreid.config import get_cfg
+from fast_reid.fastreid.modeling.meta_arch import build_model
+from fast_reid.fastreid.utils.checkpoint import Checkpointer
+
+
+def setup_cfg(config_file, opts):
+    # load config from file and command-line arguments
+    cfg = get_cfg()
+    cfg.merge_from_file(config_file)
+    cfg.merge_from_list(opts)
+    cfg.MODEL.BACKBONE.PRETRAIN = False
+    cfg.freeze()
+    return cfg
+
+
+class FastReID(torch.nn.Module):
+    def __init__(self, weights_path):
+        super().__init__()
+        config_file = "/media/cvlab1045/D1/sp/code/DiffusionTrack-main/diffusion/models/external/fast_reid/configs/MOT17/sbs_S50.yml"
+        self.cfg = setup_cfg(config_file, ['MODEL.WEIGHTS', weights_path])
+        self.model = build_model(self.cfg)
+        self.model.eval()
+        self.model.cuda()
+
+        Checkpointer(self.model).load(weights_path)
+        self.pH, self.pW = self.cfg.INPUT.SIZE_TEST
+
+    def forward(self, batch):
+        # Uses half during training
+        batch = batch.half()
+        with torch.no_grad():
+            return self.model(batch)
+
+
+if __name__ == '__main__':
+    model = FastReID('/media/cvlab1045/D1/lzj/Deep-OC-SORT-main/external/weights/mot17_sbs_S50.pth')
+    img = cv2.imread(
+        '/media/cvlab1045/D1/lzj/Deep-OC-SORT-main/data/mot/train/MOT17-02-DPM/img1/000001.jpg')
+    img = torch.tensor(img).permute(2, 1, 0)
+    emb = model(img.unsqueeze(0))
+    print(emb.shape)
