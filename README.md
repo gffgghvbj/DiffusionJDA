@@ -10,39 +10,6 @@ Run Luo, Zikai Song, Lintao Ma, Jinlin Wei
 
 *[arXiv 2308.09905](https://arxiv.org/abs/2308.09905)*
 
-## Tracking performance
-
-### Results on MOT17 challenge test set with 15.89 FPS
-
-| Method             | MOTA     | IDF1     | HOTA     | AssA     | DetA     |
-| ------------------ | -------- | -------- | -------- | -------- | -------- |
-| TrackFormer        | 74.1     | 68.0     | 57.3     | 54.1     | 60.9     |
-| MeMOT              | 72.5     | 69.0     | 56.9     | 55.2     | /        |
-| MOTR               | 71.9     | 68.4     | 57.2     | 55.8     | /        |
-| CenterTrack        | 67.8     | 64.7     | 52.2     | 51.0     | 53.8     |
-| PermaTrack         | 73.8     | 68.9     | 55.5     | 53.1     | 58.5     |
-| TransCenter        | 73.2     | 62.2     | 54.5     | 49.7     | 60.1     |
-| GTR                | 75.3     | 71.5     | 59.1     | 57.0     | 61.6     |
-| TubeTK             | 63.0     | 58.6     | /        | /        | /        |
-| **DiffusionTrack** | **77.9** | **73.8** | **60.8** | **58.8** | **63.2** |
-
-### Results on MOT20 challenge test set with 13.37 FPS
-
-| Method             | MOTA     | IDF1     | HOTA     | AssA     | DetA     |
-| ------------------ | -------- | -------- | -------- | -------- | -------- |
-| TrackFormer        | 68.6     | 65.7     | 54.7     | 53.0     | 56.7     |
-| MeMOT              | 63.7     | 66.1     | 54.1     | **55.0** | /        |
-| TransCenter        | 67.7     | 58.7     | /        | /        | /        |
-| **DiffusionTrack** | **72.8** | **66.3** | **55.3** | 51.3     | **59.9** |
-
-### Results on Dancetrack challenge test set with 21.05 FPS
-
-| Method             | MOTA     | IDF1     | HOTA     | AssA     | DetA     |
-| ------------------ | -------- | -------- | -------- | -------- | -------- |
-| TransTrack         | 88.4     | 45.2     | 45.5     | 27.5     | 75.9     |
-| CenterTrack        | 86.8     | 35.7     | 41.8     | 22.6     | 78.1     |
-| **DiffusionTrack** | **89.3** | **47.5** | **52.4** | **33.5** | **82.2** |
-
 ### Visualization results
 
 ![MOT20](README.assets/MOT20.gif)
