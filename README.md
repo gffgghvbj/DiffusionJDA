@@ -1,7 +1,9 @@
-## DiffusionTrack：Diffusion Model For Multi-Object Tracking
+## DiffusionJDA.
 
-**DiffusionTrack is the first work of diffusion model for multi-object tracking.**
-
+**we propose DiffusionJDA, a fully end-to-end one-stage framework that unifies object detection and cross frame identity association within a single diffusion denoising
+process. To address the optimization conflict between detection and association, a Representation Decoupling Network learns
+complementary geometry-aware and identity-aware representations via self- and cross-relation attention. A differentiable association head with Cross-Frame Attention and Association Reasoning explicitly models affinity and performs structured
+denoising, while Association Focal Loss alleviates severe cross frame matching imbalance.**
 ![image-20230819130751450](README.assets/DiffusionJDA.png)
 
 [**DiffusionTrack：Diffusion Model For Multi-Object Tracking**](https://arxiv.org/abs/2308.09905)
